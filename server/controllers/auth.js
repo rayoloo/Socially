@@ -54,7 +54,7 @@ export const login = async (req, res) => {
 		if (!isMatch) {
 			return res.status(400).json({ msg: 'Wrong password' })
 		}
-		//create a token if login creditial match
+		//create a token if login credential match
 		const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET)
 		delete user.password
 		res.status(200).json({ token, user })
